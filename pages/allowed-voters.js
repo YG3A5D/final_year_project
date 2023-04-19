@@ -16,13 +16,13 @@ import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
 
 const allowedVoters = ()=>{
-  const[fileUrl, setfileUrl] = useState(null);
+  const[fileUrl, setFileUrl] = useState(null);
   const[formInput, setFormInput] = useState({
     name: "",
     address: "",
     position: "",
   });
-
+};
 
 const router = useRouter();
 const {uploadToIPFS} = useContext(VotingContext);
@@ -64,5 +64,5 @@ const {getRootProps, getInputProps} = useDropzone({
       </div>
     </div>
   )
-};
+
 export default allowedVoters;
