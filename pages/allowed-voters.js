@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 import { useContext } from 'react';
-import useRouter from 'next/router';
 import { useDropzone } from 'react-dropzone';
+import useRouter from 'next/router';
 import Image from 'next/image';
 
 
-//----- INTERNAL IMPORT
+//----- INTERNAL IMPORT ------//
 import { VotingContext } from '../context/Voter';
 import Style from '../styles/allowedVoters.module.css';
 import images from '../assets';
@@ -110,12 +110,40 @@ const allowedVoters = ()=> {
         <div className={Style.input_container}>
           <Input 
           inputType="text" 
-          title="Address" 
-          placeholder='Voter Address'
+          title="Name" 
+          placeholder='Voter AName'
           handleClick={(e) => setFormInput({...formInput, name:e.target.value})}/>
         </div>
+        <div className={Style.input_container}>
+          <Input 
+          inputType="text" 
+          title="Address" 
+          placeholder='Voter Address'
+          handleClick={(e) => setFormInput({...formInput, address:e.target.value})}/>
+        </div>
+        <div className={Style.input_container}>
+          <Input 
+          inputType="text" 
+          title="Position" 
+          placeholder='Voter APosition'
+          handleClick={(e) => setFormInput({...formInput, position:e.target.value})}/>
+
+        <div className={Style.button}>
+          <Button btnName="Authorized Voter" handleCLick={() => {}}/>
+        </div>
+      </div>
      </div>
-    </div>                
+    
+    {/*---////////////---*/}
+    <div className = {Style.cratedVoter}>
+      <div className={Style.createdVoter_info}>
+          <Image src={image.creator} alt="User Profile"/>
+          <p>Notice For User</p>
+          <p>Organizer <span>0x939939..</span></p>
+          <p>Only Organizer of the voting contract can create voter for voting election</p>
+      </div>
+    </div>          
+  </div>      
   );
 };
 export default allowedVoters
